@@ -1,0 +1,34 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="my-3">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    {% for director in directores %}
+    <div class="col">
+      <div class="card text-bg-dark h-100">
+        <img src="{{ director.imagen }}" class="card-img-top" alt="Foto de {{ director.nombre }}">
+        <div class="card-body">
+          <h4>{{ director.nombre }}</h4>
+          <p class="card-text">Nacio el {{ director.fecha_nacimiento }} en {{ director.nacionalidad }}</p>
+
+          <ul class="list-group">
+            <li class="list-group-item text-bg-dark" style="background-color: rgba(54, 55, 60, 0.729)!important;">
+              <div>Películas dirigidas</div>
+            </li>
+            {% for pelis in director.peliculas.all %}
+            <li class="list-group-item text-bg-dark">
+              <a class="link-light text-muted" href="{% url 'url_peliporid' pelis.id %}">{{ pelis.titulo }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+{% endblock %}

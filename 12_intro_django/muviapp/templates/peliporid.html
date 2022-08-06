@@ -1,0 +1,28 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+<div class="my-3">
+  <div class="card text-white bg-dark">
+    
+    <div class="card-header">
+      <img src="{{ peliporid.imagen }}" class="card-img-top mx-auto" alt="{{ peliporid.titulo }}" style="width: 350px;">
+    </div>
+    <div class="card-body">
+      <div class="h4 py-0">{{ peliporid.titulo }}</div>
+      <hr style="border-color: black;">
+
+      <div class="row text-muted">
+        <div class="col">Duración: {{ peliporid.duracion }}h</div>
+        <div class="col">Año: {{ peliporid.fecha_estreno }}</div>
+        <div class="col">Dirigida por: {{ peliporid.directores }}</div>
+      </div>
+      <hr style="border-color: black;">
+      <div class="card-text">{{ peliporid.resumen }}</div>
+    </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

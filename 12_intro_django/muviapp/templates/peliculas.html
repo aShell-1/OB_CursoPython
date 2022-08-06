@@ -1,0 +1,27 @@
+{% extends 'master.html' %}
+
+{% block content %}
+<div class="my-3">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    {% for peli in peliculas %}
+    <div class="col">
+      <div class="card text-bg-dark">
+        <img src="{{ peli.imagen }}" class="card-img-top" alt="Portada de {{ peli.titulo }}">
+        <div class="card-body">
+          <a class="link-light h5 text-decoration-none" href="{% url 'url_peliporid' peli.id %}">{{ peli.titulo }}</a>
+          <hr style="border-color: black;">
+          <div class="row text-muted">
+            <div class="col">{{ peli.duracion }}h</div>
+            <div class="col">{{ peli.fecha_estreno }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+{% endblock %}
